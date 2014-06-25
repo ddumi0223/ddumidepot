@@ -80,7 +80,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		PAINTSTRUCT ps;
 		HDC hdc = ::BeginPaint(hWnd, &ps);
 
-		if (wParam == 0)
+		if (wParam == 0)w
 		{
 			// TODO
 			SYSTEMTIME st;
