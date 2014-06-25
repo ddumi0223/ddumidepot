@@ -15,10 +15,11 @@ public :
 	bool Load(LPCTSTR szFileName, const Rect& rc);
 
 	void Draw(HDC hdc);
-	void TileDraw(HDC hdc);
 	void SetRect(const Rect& rc);
 
 	void SetTransparent(const COLORREF& clr);
+
+	HBITMAP GetBitMap();
 
 private :
 	bool _load_detail(LPCTSTR szFileName);

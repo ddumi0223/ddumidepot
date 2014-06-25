@@ -64,30 +64,6 @@ void Image::Draw(HDC hdc)
 	::DeleteDC(hBitmapDC);
 }
 
-void Image::TileDraw(HDC hdc)
-{
-	if (hBitmap == NULL) return;
-	
-	/*HDC hBitmapDC = ::CreateCompatibleDC(hdc);
-	HBITMAP hOld = ::Select(hBitmapDC, hBitmap);*/
-		
-	INT img_width = rcSrc.width() / rcDest.width();
-	INT img_height = rcSrc.height() / rcDest.height();
-		
-	for(int i = 0; i < rcSrc.width(); i++)
-	{
-		for(int j = 0; j < rcSrc.height(); j++)
-		{
-			::StretchBlt(hdc, rcDest.left, rcDest.top, 
-				rcDest.width(), rcDest.height(), hBitmapDC, rcSrc.left, rcSrc.top, rcSrc.width(), rcSrc.height(), SRCCOPY);
-		}
-	}
-	
-
-	::Select(hBitmapDC, hOld);
-	::DeleteDC(hBitmapDC);
-}
-
 void Image::SetRect(const Rect& rc)
 {
 	rcDest = rc;
@@ -106,4 +82,9 @@ bool Image::_load_detail(LPCTSTR szFileName)
 		return false;
 
 	return true;
+}
+
+HBITMAP Image::GetBitMap()
+{
+	return hBitmap;
 }
